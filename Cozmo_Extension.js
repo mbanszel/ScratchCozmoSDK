@@ -485,8 +485,8 @@
       return {status: 2, msg: "Ready"};
   };
 
-  var descriptor = {
-      blocks: [
+  var blocks = {
+      en:  [
           ["w", "Say %s", "block_speak", "hi im cozmo"],
           ["w", "Act %m.emotions", "block_playEmotion", "Amazed"],
           ["w", "Play %m.animations animation", "block_playAnimation", "Sneeze"],
@@ -530,6 +530,53 @@
           [" ", "%m.invert colors", "block_invertColors", "Invert"],
           [" ", "Show transparency as %m.transparency", "block_setTransparency", "White"],
       ],
+      cz:  [
+          ["w", "Řekni %s", "block_speak", "hi im cozmo"],
+          ["w", "Předveď %m.emotions", "block_playEmotion", "Amazed"],
+          ["w", "Přehrej %m.animations animation", "block_playAnimation", "Sneeze"],
+          ["s"],
+          [" ", "Nastav rychlost na %n cm/s", "block_setSpeed", 5],
+          ["w", "Posuň se %n cm %m.direction", "block_moveDistance", 10 , "Forward"],
+          ["w", "Otoč se %m.sideDirection o %n stupňů", "block_turnAngle", "Left", 90],
+          [" ", "Jeď %m.movement", "block_drive", "Forward"],
+          [" ", "Zastav", "block_stopDriving"],
+          ["s"],
+          ["w", "Nakloň hlavu na %n stupňů", "block_tiltHead", 20],
+          ["w", "Zvedni paži na %m.heights", "block_liftArm", "Top"],
+          ["s"],
+          [" ", "Nastav %m.lights na %m.colors", "block_colorLight", "Backpack", "White"],
+          ["s"],
+          ["h", "Když je poklepáno na  %m.cubes", "block_whenTapped", "Any Cube"],
+          ["h", "Když je Cozmo %m.places", "block_whenPlace", "Picked Up"],
+          //["h", "When a cliff is found", "block_whenCliff"],
+          ["s"],
+          ["w", "Zvedni %m.cube", "block_pickedUp", "Cube #1"], //add any cube to list
+          ["w", "Place held cube on %m.cube", "block_stackCube", "Cube #2"],
+          [" ", "Zastav všechno co Cozmo dělá", "block_Estop"],
+          [" ", "%m.states Cozmovu svobodnou vůli", "block_freewill", "Enable"],
+          ["s"],
+          ["b", "Vidí Cozmo %m.objects?", "block_canSee", "Any Cube"],
+          ["b", "Je %m.cube %m.cubeDirection od Cozmo?", "block_isDirection", "Cubde #1", "Left"],
+          ["b", "Bylo nedávno poklepáno na %m.cubes?", "block_wasTapped", "Cube #1"],
+          ["b", "Dochází Cozmovi baterie?", "block_voltage"],
+          ["s"],
+          [" ", "Set driving time to %m.time", "block_setTime", "Short"],
+          [" ", "%m.motion čekání na dokončení akcí", "block_stopWaiting", "Stop"],
+          [" ", "Nastav Cozmovu hlasitost na %m.volume", "block_setVolume", "Medium"],
+          //["s"],
+          //[" ", "Open camera viewer", "block_openStream"],
+          ["s"],
+          [" ", "Nahrej sprite ze souboru %s", "block_loadSprite", "demo.sprite2"],
+          [" ", "Show costume %s of sprite %s", "block_showCostume", "walking", "scratch"],
+          [" ", "Animuj sprite %s na %n fps", "block_animateSprite", "scratch", "1"],
+          [" ", "Resetuj Cozmův obličej", "block_stopSprite"],
+          [" ", "Set display threshold to %n", "block_setThreshold", "100"],
+          [" ", "%m.invert colors", "block_invertColors", "Invert"],
+          [" ", "Show transparency as %m.transparency", "block_setTransparency", "White"],
+      ]}
+
+  var descriptor = {
+      blocks: blocks["cz"],
       menus: {
         colors: ["Off", "White", "Red", "Orange","Yellow", "Green", "Blue", "Purple"],
         objects: ["Any Cube", "Cube #1", "Cube #2", "Cube #3", "Face", "Pet", "Charger"], // add face and pet
